@@ -1,15 +1,11 @@
 :root{
   background-color: #000;
-  color: #fff;
   font-family: 'Ancizar Sans', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-section{
-  height: 100vh;
-}
 
 ::-webkit-scrollbar{
   display: none;
@@ -21,4 +17,137 @@ html, body{
   padding: 0;
   height: 100vh;
   height: -webkit-fill-available;
+}
+
+.slide{
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  visibility: hidden;
+  & .slide__content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;;
+  }
+
+  & .slide__title{
+    --width: 200;
+    display: block;
+    font-size: clamp(5rem, 15vw, 15rem);
+    font-weight: 900;
+    font-variant-settings: "wght" var(--width) ;
+    margin: 0;
+    padding: 0;
+    z-index: 900;
+    align-self: center;
+  }
+
+  & .slide__rank{
+    --width: 200;
+    display: block;
+    font-size: clamp(5rem, 15vw, 15rem);
+    font-weight: 900;
+    font-variant-settings: "wght" var(--width) ;
+    margin: 0;
+    padding: 0;
+    z-index: 900;
+    align-self: center;
+  }
+}
+
+
+.slide:nth-child(1){
+  visibility: visible;
+  .slide__content{
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+.slide:nth-child(2){
+
+  .slide__content{
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+.slide:nth-child(3){
+
+  .slide__content{
+    background-color: #011738;
+    color: #fff;
+  }
+}
+
+.slide:nth-child(4){
+  .slide__content{
+    background-color: #3f1908;
+    color: #fff;
+  }
+}
+
+.slide:nth-child(5){
+  .slide__content{
+    background-color: #21ffc8;
+    color: #fff;
+  }
+}
+
+.slide:nth-child(6){
+  .slide__content{
+    background-color: #fa60d4;
+    color: #fff;
+  }
+}
+
+.slide:nth-child(7){
+  .slide__content{
+    background-color: #779c32;
+    color: #91380f;
+  }
+}
+
+.slide:nth-child(8){
+  .slide__content{
+    background-color: #ffba24;
+    color: #000;
+  }
+}
+
+.slide:nth-child(9){
+  .slide__content{
+    background-color: #9a2ab6;
+    color: #fff;
+  }
+}
+
+.slide:nth-child(10){
+  .slide__content{
+    background-color: #ffce63;
+    color: #000;
+  }
+}
+
+.slide:nth-child(11){
+  .slide__content{
+    background: linear-gradient(to bottom, #ffce63, #ff63f7);
+    color: #fff;
+  }
+}
+
+.overlay{
+  color: #000;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ z-index: 1000;
+ font-weight: 900;
 }

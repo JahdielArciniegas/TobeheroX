@@ -19,6 +19,11 @@ html, body{
   height: -webkit-fill-available;
 }
 
+figure{
+  margin: 0;
+  overflow: hidden;
+}
+
 .slide{
   height: 100%;
   width: 100%;
@@ -57,35 +62,60 @@ html, body{
     transform: translate(-50%, -50%);
   }
 
-  & .slide__title{
-    --width: 200;
-    display: block;
-    font-size: clamp(5rem, 15vw, 15rem);
-    font-weight: 900;
-    font-variant-settings: "wght" var(--width) ;
-    margin: 0;
-    padding: 0;
+  & .slide__text{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 10rem;
     z-index: 900;
-    align-self: center;
+    & .slide__title{
+      font-size: clamp(1rem, 2.5vw, 3rem);
+      font-weight: 900;
+      margin: 0;
+      padding: 0;
+      z-index: 900;
+      align-self: start;
+    }
+    & .slide__description{
+      font-size: clamp(0.5rem, 2.5vw, 1rem);
+      font-weight: 400;
+      width: 400px;
+      margin: 0;
+      padding: 0;
+      z-index: 900;
+      align-self: start;
+    }
   }
 
-  & .slide__rank{
-    --width: 200;
-    display: block;
-    font-size: clamp(5rem, 15vw, 15rem);
-    font-weight: 900;
-    font-variant-settings: "wght" var(--width) ;
-    margin: 0;
-    padding: 0;
-    z-index: 900;
-    align-self: center;
+  
+
+  & .overlay__video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    &::after {
+      content: "";
+      height: 20px;
+      left: -40px;
+      position: absolute;
+      top: 40px;
+      width: 100px;
+    }
+    object-fit: cover;
+    overflow: hidden;
+    z-index: -100;
   }
 }
 
 .slide:nth-child(1){
   visibility: visible;
   .slide__content{
-    background-color: #fff;
+    background-color: #ffffff;
     color: #000;
   }
 }
@@ -115,14 +145,14 @@ html, body{
 
 .slide:nth-child(4){
   .slide__content{
-    background-color: #21ffc8;
-    color: #fff;
+    background-color: #21ffc7;
+    color: #ff78e9;
   }
 }
 
 .slide:nth-child(5){
   .slide__content{
-    background-color: #fa60d4;
+    background-color: #fa60d3;
     color: #fff;
   }
 }
@@ -151,7 +181,7 @@ html, body{
 .slide:nth-child(9){
   .slide__content{
     background-color: #ffce63;
-    color: #000;
+    color: #fff;
   }
 }
 
@@ -163,23 +193,10 @@ html, body{
 }
 
 .overlay{
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- height: 100vh;
- z-index: 1;
- font-weight: 900;
-
- & .overlay__content{
-  display: none;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
+  position: fixed;
   top: 0;
-  position: absolute;
-  font-size: 400vh;
-  z-index: -1;
- }
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 4;
 }

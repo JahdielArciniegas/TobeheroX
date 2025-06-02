@@ -2,6 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const section = gsap.utils.toArray(".slide");
 const wrap = gsap.utils.wrap(0, section.length);
+
 let animating;
 let currentIndex = 0;
 
@@ -23,12 +24,12 @@ function gotoSection(index, direction) {
   });
   let currentSection = section[currentIndex];
   let title = currentSection.querySelector(".slide__title");
-  let rank = currentSection.querySelector(".slide__rank");
+  let description = currentSection.querySelector(".slide__description");
   let currentBg = currentSection.querySelector(".slide__content");
 
   let nextSection = section[index];
   let nextTitle = nextSection.querySelector(".slide__title");
-  let nextRank = nextSection.querySelector(".slide__rank");
+  let nextDescription = nextSection.querySelector(".slide__description");
   let nextBg = nextSection.querySelector(".slide__content");
 
   gsap.set([section], {
@@ -49,25 +50,24 @@ function gotoSection(index, direction) {
   tl.to(
     currentBg,
     {
-      xPercent: 0,
+      x: 0,
     },
     0
   )
     .fromTo(
       nextBg,
       {
-        xPercent: 100 * direction,
+        x: 10000 * direction,
       },
       {
-        xPercent: 0,
+        x: 0,
       },
       0
     )
     .to(
       title,
       {
-        "--width": 800,
-        xPercent: 400 * direction,
+        x: -1000 * direction,
       },
       0
     )
@@ -75,36 +75,31 @@ function gotoSection(index, direction) {
       nextTitle,
       {
         opacity: 0,
-        "--width": 800,
-        xPercent: -400 * direction,
+        x: -1000 * direction,
       },
       {
         opacity: 1,
-        "--width": 200,
-        xPercent: 0,
+        x: 0,
       },
       0
     )
     .to(
-      rank,
+      description,
       {
-        "--width": 800,
-        xPercent: -200 * direction,
+        x: -1000 * direction,
       },
       0
     )
     .fromTo(
-      nextRank,
+      nextDescription,
       {
         opacity: 0,
-        "--width": 800,
-        xPercent: 400 * direction,
+        x: 1000 * direction,
         delay: 0.5,
       },
       {
         opacity: 1,
-        "--width": 200,
-        xPercent: 0,
+        x: 0,
       },
       0
     );

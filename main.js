@@ -1,7 +1,12 @@
 gsap.registerPlugin(ScrollTrigger);
 
 const section = gsap.utils.toArray(".slide");
+const video = gsap.utils.toArray(".overlay__video");
 const wrap = gsap.utils.wrap(0, section.length);
+video.forEach((video) => {
+  video.volume = 0.1;
+  video.loop = true;
+});
 
 let animating;
 let currentIndex = 0;
@@ -26,11 +31,17 @@ function gotoSection(index, direction) {
   let title = currentSection.querySelector(".slide__title");
   let description = currentSection.querySelector(".slide__description");
   let currentBg = currentSection.querySelector(".slide__content");
+  let currentVideo = video[currentIndex];
+  currentVideo.pause();
+  currentVideo.currentTime = 0;
 
   let nextSection = section[index];
   let nextTitle = nextSection.querySelector(".slide__title");
   let nextDescription = nextSection.querySelector(".slide__description");
   let nextBg = nextSection.querySelector(".slide__content");
+  let nextVideo = video[index];
+  nextVideo.play();
+  nextVideo.currentTime = 0;
 
   gsap.set([section], {
     zIndex: 0,
@@ -59,6 +70,20 @@ function gotoSection(index, direction) {
       {
         x: 10000 * direction,
       },
+      {
+        x: 0,
+      },
+      0
+    )
+    .to(
+      currentVideo,
+      {
+        x: 0,
+      },
+      0
+    )
+    .to(
+      currentVideo,
       {
         x: 0,
       },

@@ -71,6 +71,7 @@ figure{
     top: 50%;
     left: 10rem;
     z-index: 900;
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
     & .slide__title{
       font-size: clamp(1rem, 2.5vw, 3rem);
       font-weight: 900;
@@ -80,7 +81,7 @@ figure{
       align-self: start;
     }
     & .slide__description{
-      font-size: clamp(0.5rem, 2.5vw, 1rem);
+      font-size: clamp(0.8rem, 2.5vw, 1.7rem);
       font-weight: 400;
       width: 400px;
       margin: 0;
@@ -115,7 +116,7 @@ figure{
 .slide:nth-child(1){
   visibility: visible;
   .slide__content{
-    background-color: #ffffff;
+    background-color: #ffffff50;
     color: #000;
   }
 }
@@ -131,63 +132,67 @@ figure{
 .slide:nth-child(2){
 
   .slide__content{
-    background-color: #011738;
+    background-color: #01173850;
     color: #fff;
   }
 }
 
 .slide:nth-child(3){
   .slide__content{
-    background-color: #3f1908;
+    background-color: #3f190850;
     color: #fff;
   }
 }
 
 .slide:nth-child(4){
   .slide__content{
-    background-color: #21ffc7;
+    background-color: #21ffc750;
     color: #ff78e9;
+
+    & .slide__description{
+      color: #fff;
+    }
   }
 }
 
 .slide:nth-child(5){
   .slide__content{
-    background-color: #fa60d3;
+    background-color: #fa60d350;
     color: #fff;
   }
 }
 
 .slide:nth-child(6){
   .slide__content{
-    background-color: #779c32;
+    background-color: #779c3250;
     color: #91380f;
   }
 }
 
 .slide:nth-child(7){
   .slide__content{
-    background-color: #ffba24;
+    background-color: #ffba2450;
     color: #000;
   }
 }
 
 .slide:nth-child(8){
   .slide__content{
-    background-color: #9a2ab6;
+    background-color: #9a2ab650;
     color: #fff;
   }
 }
 
 .slide:nth-child(9){
   .slide__content{
-    background-color: #ffce63;
+    background-color: #ffce6350;
     color: #fff;
   }
 }
 
 .slide:nth-child(10){
   .slide__content{
-    background: linear-gradient(to bottom, #ffce63, #ff63f7);
+    background: linear-gradient(to bottom, #ffce6350, #ff63f750);
     color: #fff;
   }
 }
